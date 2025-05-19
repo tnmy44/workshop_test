@@ -1,0 +1,124 @@
+{
+  "id" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_sorted",
+  "metainfo" : {
+    "label" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_sorted",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "alias" : "\"prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_sorted_0\"",
+        "materialized" : "table",
+        "database" : "\"prophecy_sql_workshop_clone\"",
+        "schema" : "\"healthcare_sample\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_sorted_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_sorted_0",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "diagnosis_cost_summary_sorted",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM diagnosis_cost_summary_sorted\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_3_1",
+          "slug" : "input_port_3_1"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_3_1",
+          "slug" : "output_port_3_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt" : {
+      "id" : "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "diagnosis_cost_summary_sorted",
+        "x" : 640,
+        "y" : -280,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "9Mo8TL8MabLQj6KN--t_0$$suw_0wxubtgeD5pO4L5Fe##total_cost" ],
+        "orders" : [ {
+          "expression" : {
+            "expression" : "total_cost"
+          },
+          "sortType" : "desc"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "9Mo8TL8MabLQj6KN--t_0$$suw_0wxubtgeD5pO4L5Fe",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "nbVoF9wBUvzI0hOpGBu0v$$yt7vCpzwb4BU1jPAG2bxL",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "diagnosis_cost_summary",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0",
+          "sourceType" : "Source",
+          "sourceName" : "prophecy__temp_L2_clinical_trial_gap_analysis_source",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "output_port_2_1",
+          "slug" : "output_port_2_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "conn_h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt_prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_sorted_0",
+    "source" : "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt",
+    "sourcePort" : "nbVoF9wBUvzI0hOpGBu0v$$yt7vCpzwb4BU1jPAG2bxL",
+    "target" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_sorted_0",
+    "targetPort" : "input_port_3_1"
+  }, {
+    "id" : "YFIk4Zn0VC_fiDzadZJbb$$_1weVoofGSoNaRrmteSpq",
+    "source" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0",
+    "sourcePort" : "output_port_2_1",
+    "target" : "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt",
+    "targetPort" : "9Mo8TL8MabLQj6KN--t_0$$suw_0wxubtgeD5pO4L5Fe"
+  } ],
+  "component" : "Model"
+}

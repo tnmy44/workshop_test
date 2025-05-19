@@ -1,0 +1,198 @@
+{
+  "id" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data",
+  "metainfo" : {
+    "label" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "alias" : "\"prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0\"",
+        "materialized" : "table",
+        "database" : "\"prophecy_sql_workshop_clone\"",
+        "schema" : "\"healthcare_sample\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "cleanse_diagnosis_data",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM cleanse_diagnosis_data\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_1_1",
+          "slug" : "input_port_1_1"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_1_1",
+          "slug" : "output_port_1_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9" : {
+      "id" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
+      "component" : "DataCleansing",
+      "metadata" : {
+        "label" : "cleanse_diagnosis_data",
+        "x" : 60,
+        "y" : -120,
+        "phase" : 0
+      },
+      "properties" : {
+        "trimWhiteSpace" : false,
+        "replaceNullForNumericFields" : false,
+        "cleanLetters" : false,
+        "replaceNullTextWith" : "No Diagnosis",
+        "removeRowNullAllCols" : false,
+        "replaceNullTextFields" : true,
+        "relation_name" : [ "total_cost_by_diagnosis" ],
+        "replaceNullDateWith" : "1970-01-01",
+        "columnNames" : [ "snomed_diagnosis" ],
+        "replaceNullTimeFields" : false,
+        "_oldMacroProperties" : {
+          "macroName" : "DataCleansing",
+          "projectName" : "DatabricksSqlBasics",
+          "parameters" : [ {
+            "name" : "relation_name",
+            "value" : "['total_cost_by_diagnosis']"
+          }, {
+            "name" : "schema",
+            "value" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]"
+          }, {
+            "name" : "modifyCase",
+            "value" : "Keep original"
+          }, {
+            "name" : "columnNames",
+            "value" : "[\"snomed_diagnosis\"]"
+          }, {
+            "name" : "replaceNullTextFields",
+            "value" : "true"
+          }, {
+            "name" : "replaceNullTextWith",
+            "value" : "No Diagnosis"
+          }, {
+            "name" : "replaceNullForNumericFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullNumericWith",
+            "value" : "0"
+          }, {
+            "name" : "trimWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "removeTabsLineBreaksAndDuplicateWhitespace",
+            "value" : "false"
+          }, {
+            "name" : "allWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "cleanLetters",
+            "value" : "false"
+          }, {
+            "name" : "cleanPunctuations",
+            "value" : "false"
+          }, {
+            "name" : "cleanNumbers",
+            "value" : "false"
+          }, {
+            "name" : "removeRowNullAllCols",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateWith",
+            "value" : "1970-01-01"
+          }, {
+            "name" : "replaceNullTimeFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullTimeWith",
+            "value" : "1970-01-01 00:00:00.0"
+          } ]
+        },
+        "replaceNullTimeWith" : "1970-01-01 00:00:00.0",
+        "schema" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]",
+        "allWhiteSpace" : false,
+        "removeTabsLineBreaksAndDuplicateWhitespace" : false,
+        "modifyCase" : "Keep original",
+        "cleanPunctuations" : false,
+        "replaceNullDateFields" : false,
+        "cleanNumbers" : false,
+        "replaceNullNumericWith" : 0
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rPyBggoH7oL849eQ2F1PE$$ghZ2nXvwcV1cJsQsGBFCo",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "UxLw0qLh8QkhWQfreGMKh$$eVY_Vb_NIvtm2vGxMcfAh",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "total_cost_by_diagnosis",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0",
+          "sourceType" : "Source",
+          "sourceName" : "prophecy__temp_L2_clinical_trial_gap_analysis_source",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "output_port_0_1",
+          "slug" : "output_port_0_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "tRzTFxuuNmij3gefjCaQ3",
+    "source" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
+    "sourcePort" : "UxLw0qLh8QkhWQfreGMKh$$eVY_Vb_NIvtm2vGxMcfAh",
+    "target" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+    "targetPort" : "input_port_1_1"
+  }, {
+    "id" : "3ymwce1UyEnQPX6wswgbP",
+    "source" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0",
+    "sourcePort" : "output_port_0_1",
+    "target" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
+    "targetPort" : "rPyBggoH7oL849eQ2F1PE$$ghZ2nXvwcV1cJsQsGBFCo"
+  } ],
+  "component" : "Model"
+}

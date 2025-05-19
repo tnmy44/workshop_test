@@ -1,0 +1,84 @@
+{
+  "id" : "mod1",
+  "metainfo" : {
+    "label" : "mod1",
+    "autoLayout" : false,
+    "staleState" : "file",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "mod1##ls9aZcoj" : {
+      "id" : "mod1##ls9aZcoj",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "mod1",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "macroDependencies" : [ ]
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "SELECT * \n\nFROM l0_raw_patients\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "DpK0YnL2",
+          "slug" : "l0_raw_patients"
+        } ],
+        "outputs" : [ {
+          "id" : "JqefBYgB",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "uKOZhGBEhjKQJKdeoJTM5" : {
+      "id" : "uKOZhGBEhjKQJKdeoJTM5",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "l0_raw_patients",
+        "slug" : "l0_raw_patients",
+        "x" : -600,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "l0_raw_patients",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_sql_workshop.healthcare_sample",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "WWEvJzJJIKzLGTo21Q6d9",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "z342UaLin7DoVgS5g-Um0",
+    "source" : "uKOZhGBEhjKQJKdeoJTM5",
+    "sourcePort" : "WWEvJzJJIKzLGTo21Q6d9",
+    "target" : "mod1##ls9aZcoj",
+    "targetPort" : "DpK0YnL2"
+  } ],
+  "component" : "Model"
+}

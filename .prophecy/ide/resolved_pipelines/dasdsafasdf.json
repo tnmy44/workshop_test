@@ -1,0 +1,239 @@
+{
+  "id" : "dasdsafasdf",
+  "metainfo" : {
+    "label" : "dasdsafasdf",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "schedule" : {
+      "cron" : "* 0 2 * * * *",
+      "timeZone" : "GMT",
+      "emailOnSuccess" : false,
+      "emailOnFailure" : false,
+      "emailOnStart" : false,
+      "emails" : [ "email@gmail.com" ],
+      "enabled" : false
+    }
+  },
+  "processes" : {
+    "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D" : {
+      "id" : "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "l0_raw_clinical_trials",
+        "x" : -480,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "l0_raw_clinical_trials",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_sql_workshop.healthcare_sample",
+          "alias" : "",
+          "additionalProperties" : null
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "32Lie-XF4xRn4HvXIK2hv$$3_f4QlgX1M9Z_Pp9EUUZj",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "5RoEGkDcY7VYGGSPZPtze$$nwhh3YvDzHq11d37WvpSf",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "databricks",
+            "fields" : [ {
+              "name" : "_corrupt_record",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "protocolSection",
+              "dataType" : {
+                "type" : "Struct",
+                "fields" : [ {
+                  "name" : "armsInterventionsModule",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "interventions",
+                      "dataType" : {
+                        "type" : "Array",
+                        "dataType" : {
+                          "type" : "Struct",
+                          "fields" : [ {
+                            "name" : "name",
+                            "dataType" : {
+                              "type" : "String"
+                            },
+                            "description" : "Name of the interventions used in the clinical trial"
+                          } ]
+                        }
+                      },
+                      "description" : "List of interventions used in the clinical trial"
+                    } ]
+                  },
+                  "description" : "Module detailing the arms and interventions of the clinical trial"
+                }, {
+                  "name" : "conditionsModule",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "conditions",
+                      "dataType" : {
+                        "type" : "Array",
+                        "dataType" : {
+                          "type" : "String"
+                        }
+                      },
+                      "description" : "List of conditions associated with the clinical trial"
+                    } ]
+                  },
+                  "description" : "Conditions being studied in the clinical trial"
+                }, {
+                  "name" : "designModule",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "studyType",
+                      "dataType" : {
+                        "type" : "String"
+                      },
+                      "description" : "Type of study design used in the clinical trial"
+                    } ]
+                  },
+                  "description" : "Details about the study design type of the clinical trial"
+                }, {
+                  "name" : "identificationModule",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "briefTitle",
+                      "dataType" : {
+                        "type" : "String"
+                      },
+                      "description" : "The brief title of the clinical trial"
+                    }, {
+                      "name" : "nctId",
+                      "dataType" : {
+                        "type" : "String"
+                      },
+                      "description" : "The unique identifier for the clinical trial in the NCT registry"
+                    } ]
+                  },
+                  "description" : "Identification details including the brief title and NCT ID of the clinical trial"
+                }, {
+                  "name" : "sponsorCollaboratorsModule",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "collaborators",
+                      "dataType" : {
+                        "type" : "Array",
+                        "dataType" : {
+                          "type" : "Struct",
+                          "fields" : [ {
+                            "name" : "name",
+                            "dataType" : {
+                              "type" : "String"
+                            },
+                            "description" : "Name of the collaborators involved in the clinical trial"
+                          } ]
+                        }
+                      },
+                      "description" : "List of collaborators involved in the clinical trial"
+                    }, {
+                      "name" : "leadSponsor",
+                      "dataType" : {
+                        "type" : "Struct",
+                        "fields" : [ {
+                          "name" : "name",
+                          "dataType" : {
+                            "type" : "String"
+                          },
+                          "description" : "Name of the lead sponsor for the clinical trial"
+                        } ]
+                      },
+                      "description" : "Name of the lead sponsor for the clinical trial"
+                    } ]
+                  },
+                  "description" : "Module containing information about the sponsors and collaborators of the clinical trial"
+                }, {
+                  "name" : "statusModule",
+                  "dataType" : {
+                    "type" : "Struct",
+                    "fields" : [ {
+                      "name" : "overallStatus",
+                      "dataType" : {
+                        "type" : "String"
+                      },
+                      "description" : "The overall status of the clinical trial"
+                    } ]
+                  },
+                  "description" : "Overall status of the clinical trial"
+                } ]
+              }
+            }, {
+              "name" : "snomedCode",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "conditionDescription",
+              "dataType" : {
+                "type" : "String"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "N7cfrLv6k1Tlpbb748fJi$$TuU8qm07bu4o0WRiGZULA" : {
+      "id" : "N7cfrLv6k1Tlpbb748fJi$$TuU8qm07bu4o0WRiGZULA",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "model_dasdsafasdf_clean_clinical_trial_data",
+        "phase" : 0
+      },
+      "properties" : {
+        "modelName" : "model_dasdsafasdf_clean_clinical_trial_data"
+      },
+      "visualMetaInfo" : {
+        "visualProcessIds" : [ "N7cfrLv6k1Tlpbb748fJi$$TuU8qm07bu4o0WRiGZULA", "pMJcEyoa1P1EIhLkp10Br$$-oITodQmFBOpLW6vv7bSB", "hsZm6C4Jl55YRktKtu6kX$$bvhGDOaLFrjc2kfZCQvrZ", "B1IVy0_DgJUa0AJ3Mr4rB$$L2wYpv7x-7fARoZa1MIjo", "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D" ],
+        "type" : "table",
+        "isTemporaryTable" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "model_dasdsafasdf_clean_clinical_trial_data_in_0",
+          "slug" : "in_0"
+        } ],
+        "outputs" : [ {
+          "id" : "model_dasdsafasdf_clean_clinical_trial_data_out_0",
+          "slug" : "out_0"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "pBpj-vAT3w7nsK2r_leYN",
+    "source" : "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D",
+    "sourcePort" : "5RoEGkDcY7VYGGSPZPtze$$nwhh3YvDzHq11d37WvpSf",
+    "target" : "N7cfrLv6k1Tlpbb748fJi$$TuU8qm07bu4o0WRiGZULA",
+    "targetPort" : "model_dasdsafasdf_clean_clinical_trial_data_in_0"
+  } ],
+  "component" : "Pipeline"
+}

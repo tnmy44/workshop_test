@@ -65,109 +65,7 @@ sqlSources:
       schema:
         entityType: ''
         providerType: databricks
-        fields:
-        - name: _corrupt_record
-          dataType:
-            type: String
-        - name: protocolSection
-          dataType:
-            type: Struct
-            fields:
-            - name: armsInterventionsModule
-              dataType:
-                type: Struct
-                fields:
-                - name: interventions
-                  dataType:
-                    type: Array
-                    dataType:
-                      type: Struct
-                      fields:
-                      - name: name
-                        dataType:
-                          type: String
-                        description: Name of the interventions used in the clinical
-                          trial
-                  description: List of interventions used in the clinical trial
-              description: Module detailing the arms and interventions of the clinical
-                trial
-            - name: conditionsModule
-              dataType:
-                type: Struct
-                fields:
-                - name: conditions
-                  dataType:
-                    type: Array
-                    dataType:
-                      type: String
-                  description: List of conditions associated with the clinical trial
-              description: Conditions being studied in the clinical trial
-            - name: designModule
-              dataType:
-                type: Struct
-                fields:
-                - name: studyType
-                  dataType:
-                    type: String
-                  description: Type of study design used in the clinical trial
-              description: Details about the study design type of the clinical trial
-            - name: identificationModule
-              dataType:
-                type: Struct
-                fields:
-                - name: briefTitle
-                  dataType:
-                    type: String
-                  description: The brief title of the clinical trial
-                - name: nctId
-                  dataType:
-                    type: String
-                  description: The unique identifier for the clinical trial in the
-                    NCT registry
-              description: Identification details including the brief title and NCT
-                ID of the clinical trial
-            - name: sponsorCollaboratorsModule
-              dataType:
-                type: Struct
-                fields:
-                - name: collaborators
-                  dataType:
-                    type: Array
-                    dataType:
-                      type: Struct
-                      fields:
-                      - name: name
-                        dataType:
-                          type: String
-                        description: Name of the collaborators involved in the clinical
-                          trial
-                  description: List of collaborators involved in the clinical trial
-                - name: leadSponsor
-                  dataType:
-                    type: Struct
-                    fields:
-                    - name: name
-                      dataType:
-                        type: String
-                      description: Name of the lead sponsor for the clinical trial
-                  description: Name of the lead sponsor for the clinical trial
-              description: Module containing information about the sponsors and collaborators
-                of the clinical trial
-            - name: statusModule
-              dataType:
-                type: Struct
-                fields:
-                - name: overallStatus
-                  dataType:
-                    type: String
-                  description: The overall status of the clinical trial
-              description: Overall status of the clinical trial
-        - name: snomedCode
-          dataType:
-            type: String
-        - name: conditionDescription
-          dataType:
-            type: String
+        fields: []
       description: Clinical trial data encompassing study protocols, conditions, interventions,
         and sponsors, aiding in the understanding of ongoing research efforts.
       author: sony@prophecy.io
@@ -186,52 +84,7 @@ sqlSources:
       schema:
         entityType: ''
         providerType: databricks
-        fields:
-        - name: id
-          dataType:
-            type: String
-        - name: start
-          dataType:
-            type: Timestamp
-        - name: stop
-          dataType:
-            type: Timestamp
-        - name: patient
-          dataType:
-            type: String
-        - name: organization
-          dataType:
-            type: String
-        - name: provider
-          dataType:
-            type: String
-        - name: payer
-          dataType:
-            type: String
-        - name: encounterClass
-          dataType:
-            type: String
-        - name: code
-          dataType:
-            type: String
-        - name: description
-          dataType:
-            type: String
-        - name: baseEncounterCost
-          dataType:
-            type: Double
-        - name: totalClaimCost
-          dataType:
-            type: Double
-        - name: payerCoverage
-          dataType:
-            type: Double
-        - name: reasonCode
-          dataType:
-            type: String
-        - name: reasonDescription
-          dataType:
-            type: String
+        fields: []
       description: Patient encounter records detailing costs, payer information, and
         reasons for encounters, supporting financial analysis and claims processing.
       author: sony@prophecy.io
@@ -241,35 +94,7 @@ sqlSources:
       schema:
         entityType: ''
         providerType: databricks
-        fields:
-        - name: nctId
-          dataType:
-            type: String
-        - name: briefTitle
-          dataType:
-            type: String
-        - name: studyType
-          dataType:
-            type: String
-        - name: overallStatus
-          dataType:
-            type: String
-        - name: condition
-          dataType:
-            type: String
-        - name: intervention
-          dataType:
-            type: Struct
-            fields:
-            - name: name
-              dataType:
-                type: String
-        - name: snomedCode
-          dataType:
-            type: String
-        - name: conditionDescription
-          dataType:
-            type: String
+        fields: []
       description: Clinical study details providing insights into study status, type,
         interventions, and conditions, supporting research and analysis in healthcare.
       author: sony@prophecy.io
@@ -288,18 +113,7 @@ sqlSources:
       schema:
         entityType: ''
         providerType: databricks
-        fields:
-        - name: snomed_diagnosis
-          dataType:
-            type: String
-        - name: total_cost
-          dataType:
-            type: Double
-        - name: nctIds
-          dataType:
-            type: Array
-            dataType:
-              type: String
+        fields: []
       description: Analysis of clinical study gaps, focusing on diagnoses and associated
         costs, to identify areas for improvement in healthcare research.
       author: sony@prophecy.io
@@ -371,12 +185,12 @@ sqlOrchestratorPipelines:
     description: null
     author: sony@prophecy.io
     files:
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_desc.sql
+    - models/L2_clinical_trial_gap_analysis/schema.yml
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis.sql
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_empty_nctids_summary.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary.sql
-    - models/L2_clinical_trial_gap_analysis/schema.yml
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_desc.sql
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_sorted.sql
     - .prophecy/ide/pipelines/L2_clinical_trial_gap_analysis.json
     - pipelines/L2_clinical_trial_gap_analysis.py

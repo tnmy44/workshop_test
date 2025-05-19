@@ -1,0 +1,260 @@
+{
+  "id" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary",
+  "metainfo" : {
+    "label" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "alias" : "\"prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0\"",
+        "materialized" : "table",
+        "database" : "\"prophecy_sql_workshop_clone\"",
+        "schema" : "\"healthcare_sample\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS" : {
+      "id" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "diagnosis_clinical_study_join",
+        "x" : 240,
+        "y" : -40,
+        "phase" : 0
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "expression" : "in1.snomedCode = in0.snomed_diagnosis"
+          },
+          "joinType" : "left"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "in0.snomed_diagnosis"
+          },
+          "alias" : "snomed_diagnosis",
+          "_row_id" : "1020204266"
+        }, {
+          "expression" : {
+            "expression" : "in0.total_cost"
+          },
+          "alias" : "total_cost",
+          "_row_id" : "1352753193"
+        }, {
+          "expression" : {
+            "expression" : "in1.nctId"
+          },
+          "alias" : "nctId",
+          "_row_id" : "991124602"
+        }, {
+          "expression" : {
+            "expression" : "in1.briefTitle"
+          },
+          "alias" : "briefTitle",
+          "_row_id" : "1165187530"
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "yJ0-MKEwc0lEHtJWFA46g$$cdYfpSZJdMRmgho6UiB2T##snomedCode", "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd##snomed_diagnosis", "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd##snomed_diagnosis", "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd##total_cost", "yJ0-MKEwc0lEHtJWFA46g$$cdYfpSZJdMRmgho6UiB2T##nctId", "yJ0-MKEwc0lEHtJWFA46g$$cdYfpSZJdMRmgho6UiB2T##briefTitle" ],
+        "headAlias" : "in0"
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd",
+          "slug" : "in0"
+        }, {
+          "id" : "yJ0-MKEwc0lEHtJWFA46g$$cdYfpSZJdMRmgho6UiB2T",
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "xizQgSem6ejDKnXTJGegJ$$xyCdJ43PCOciApNV3rNQC",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN" : {
+      "id" : "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "diagnosis_cost_summary",
+        "x" : 440,
+        "y" : -40,
+        "phase" : 0
+      },
+      "properties" : {
+        "aggregate" : [ {
+          "expression" : {
+            "expression" : "snomed_diagnosis"
+          },
+          "alias" : "snomed_diagnosis",
+          "_row_id" : "463311049"
+        }, {
+          "expression" : {
+            "expression" : "total_cost"
+          },
+          "alias" : "total_cost",
+          "_row_id" : "1504175189"
+        }, {
+          "expression" : {
+            "expression" : "collect_set(nctId)"
+          },
+          "alias" : "nctIds",
+          "_row_id" : "667576524"
+        } ],
+        "allowSelection" : true,
+        "condition" : {
+          "expression" : ""
+        },
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ "T6UjuC-sy1JOHGUnFOIv0$$ltnYw4nOjoZUGFJ3wnEq5##snomed_diagnosis", "T6UjuC-sy1JOHGUnFOIv0$$ltnYw4nOjoZUGFJ3wnEq5##total_cost", "T6UjuC-sy1JOHGUnFOIv0$$ltnYw4nOjoZUGFJ3wnEq5##nctId" ],
+        "groupBy" : [ {
+          "expression" : {
+            "expression" : "snomed_diagnosis"
+          },
+          "alias" : "",
+          "_row_id" : "PsPQp6Q7gP"
+        }, {
+          "expression" : {
+            "expression" : "total_cost"
+          },
+          "alias" : "",
+          "_row_id" : "L86dfiIOZi"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "T6UjuC-sy1JOHGUnFOIv0$$ltnYw4nOjoZUGFJ3wnEq5",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "g-Z2NFIbt7aS0mT50Z3Vy$$u4Qi0o4cz0-ln14b8WUZq",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "diagnosis_cost_summary",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM diagnosis_cost_summary\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_2_1",
+          "slug" : "input_port_2_1"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_2_1",
+          "slug" : "output_port_2_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "6H8HaLnlW91Tzarhdi_uu$$2bTreQDncJlEVaKCDPhXE" : {
+      "id" : "6H8HaLnlW91Tzarhdi_uu$$2bTreQDncJlEVaKCDPhXE",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "l0_bronze_clinical_study_details",
+        "x" : -360,
+        "y" : 260,
+        "phase" : 0
+      },
+      "properties" : {
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        },
+        "table" : {
+          "name" : "l0_bronze_clinical_study_details",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_sql_workshop.healthcare_sample",
+          "alias" : "",
+          "additionalProperties" : null
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "EIWAtlIfmzxbyQAoTmegK$$Iq8tWs2LvQpeXBqjjX66w",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "cleanse_diagnosis_data",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+          "sourceType" : "Source",
+          "sourceName" : "prophecy__temp_L2_clinical_trial_gap_analysis_source",
+          "alias" : ""
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "output_port_1_1",
+          "slug" : "output_port_1_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "conn_w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN_prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0",
+    "source" : "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
+    "sourcePort" : "g-Z2NFIbt7aS0mT50Z3Vy$$u4Qi0o4cz0-ln14b8WUZq",
+    "target" : "prophecy__temp_L2_clinical_trial_gap_analysis_post_diagnosis_cost_summary_0",
+    "targetPort" : "input_port_2_1"
+  }, {
+    "id" : "eCnn-CR31oZKBk2UtDYJh$$Gn7wFtUvK6c3J8IMPPp5M",
+    "source" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
+    "sourcePort" : "xizQgSem6ejDKnXTJGegJ$$xyCdJ43PCOciApNV3rNQC",
+    "target" : "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
+    "targetPort" : "T6UjuC-sy1JOHGUnFOIv0$$ltnYw4nOjoZUGFJ3wnEq5"
+  }, {
+    "id" : "ZUziX5KAS9kGkXgm9Du8j",
+    "source" : "6H8HaLnlW91Tzarhdi_uu$$2bTreQDncJlEVaKCDPhXE",
+    "sourcePort" : "EIWAtlIfmzxbyQAoTmegK$$Iq8tWs2LvQpeXBqjjX66w",
+    "target" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
+    "targetPort" : "yJ0-MKEwc0lEHtJWFA46g$$cdYfpSZJdMRmgho6UiB2T"
+  }, {
+    "id" : "conn_prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0_t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS_yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd",
+    "source" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+    "sourcePort" : "output_port_1_1",
+    "target" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
+    "targetPort" : "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd"
+  } ],
+  "component" : "Model"
+}

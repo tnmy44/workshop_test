@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "model_dasdsafasdf_clean_clinical_trial_data"
+  tags:
+  - "prophecy_temp"

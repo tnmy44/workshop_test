@@ -1,0 +1,331 @@
+{
+  "id" : "model_L0_raw_clinical_trials_clean_clinical_trial_data",
+  "metainfo" : {
+    "label" : "model_L0_raw_clinical_trials_clean_clinical_trial_data",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "alias" : "\"l0_bronze_clinical_study_details\"",
+        "materialized" : "table",
+        "database" : "\"prophecy_sql_workshop\"",
+        "schema" : "\"healthcare_sample\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "qD8BGIoXnNxQF_IhMA0Hc$$bbzOBM5CsIyX9nMnCid0P" : {
+      "id" : "qD8BGIoXnNxQF_IhMA0Hc$$bbzOBM5CsIyX9nMnCid0P",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "clinical_trial_details",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.armsInterventionsModule", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.armsInterventionsModule.interventions", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.conditionsModule", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.conditionsModule.conditions", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.identificationModule", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.identificationModule.nctId", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.identificationModule.briefTitle", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.designModule", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.designModule.studyType", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.statusModule", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##protocolSection.statusModule.overallStatus", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##snomedCode", "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB##conditionDescription" ],
+        "flattenExpressions" : [ {
+          "expression" : {
+            "expression" : "protocolSection.armsInterventionsModule.interventions"
+          },
+          "alias" : "interventions",
+          "_row_id" : "1778267107"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.conditionsModule.conditions"
+          },
+          "alias" : "conditions",
+          "_row_id" : "1198634226"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "protocolSection.identificationModule.nctId"
+          },
+          "alias" : "nctId",
+          "_row_id" : "1990760487"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.identificationModule.briefTitle"
+          },
+          "alias" : "briefTitle",
+          "_row_id" : "1937009408"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.designModule.studyType"
+          },
+          "alias" : "studyType",
+          "_row_id" : "1164358608"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.statusModule.overallStatus"
+          },
+          "alias" : "overallStatus",
+          "_row_id" : "1576845120"
+        }, {
+          "expression" : {
+            "expression" : "conditions.col"
+          },
+          "alias" : "condition",
+          "_row_id" : "522607332"
+        }, {
+          "expression" : {
+            "expression" : "interventions.col"
+          },
+          "alias" : "intervention",
+          "_row_id" : "522221915"
+        }, {
+          "expression" : {
+            "expression" : "snomedCode"
+          },
+          "alias" : "snomedCode",
+          "_row_id" : "1986563411"
+        }, {
+          "expression" : {
+            "expression" : "conditionDescription"
+          },
+          "alias" : "conditionDescription",
+          "_row_id" : "1246592876"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "x_ijtM19dTNrZeCvkY1vC$$Rdp6ynDmOfC_wvOChZRv9",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "YJmPgKcGjqIzqYVrWQacJ$$RDVUmLw-wRTRdcZ92-ygy" : {
+      "id" : "YJmPgKcGjqIzqYVrWQacJ$$RDVUmLw-wRTRdcZ92-ygy",
+      "component" : "DataCleansing",
+      "metadata" : {
+        "label" : "clean_clinical_trial_data",
+        "x" : 620,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "trimWhiteSpace" : true,
+        "replaceNullForNumericFields" : false,
+        "cleanLetters" : false,
+        "replaceNullTextWith" : "NA",
+        "removeRowNullAllCols" : false,
+        "replaceNullTextFields" : false,
+        "relation_name" : [ "clinical_trial_details" ],
+        "replaceNullDateWith" : "1970-01-01",
+        "columnNames" : [ "conditionDescription" ],
+        "replaceNullTimeFields" : false,
+        "_oldMacroProperties" : {
+          "macroName" : "DataCleansing",
+          "projectName" : "DatabricksSqlBasics",
+          "parameters" : [ {
+            "name" : "relation_name",
+            "value" : "['clinical_trial_details']"
+          }, {
+            "name" : "schema",
+            "value" : "[{\"name\": \"nctId\", \"dataType\": \"String\"}, {\"name\": \"briefTitle\", \"dataType\": \"String\"}, {\"name\": \"studyType\", \"dataType\": \"String\"}, {\"name\": \"overallStatus\", \"dataType\": \"String\"}, {\"name\": \"condition\", \"dataType\": \"String\"}, {\"name\": \"intervention\", \"dataType\": \"Struct\"}, {\"name\": \"snomedCode\", \"dataType\": \"String\"}, {\"name\": \"conditionDescription\", \"dataType\": \"String\"}]"
+          }, {
+            "name" : "modifyCase",
+            "value" : "Keep original"
+          }, {
+            "name" : "columnNames",
+            "value" : "[\"conditionDescription\"]"
+          }, {
+            "name" : "replaceNullTextFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullTextWith",
+            "value" : "NA"
+          }, {
+            "name" : "replaceNullForNumericFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullNumericWith",
+            "value" : "0"
+          }, {
+            "name" : "trimWhiteSpace",
+            "value" : "true"
+          }, {
+            "name" : "removeTabsLineBreaksAndDuplicateWhitespace",
+            "value" : "false"
+          }, {
+            "name" : "allWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "cleanLetters",
+            "value" : "false"
+          }, {
+            "name" : "cleanPunctuations",
+            "value" : "false"
+          }, {
+            "name" : "cleanNumbers",
+            "value" : "false"
+          }, {
+            "name" : "removeRowNullAllCols",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateWith",
+            "value" : "1970-01-01"
+          }, {
+            "name" : "replaceNullTimeFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullTimeWith",
+            "value" : "1970-01-01 00:00:00.0"
+          } ]
+        },
+        "replaceNullTimeWith" : "1970-01-01 00:00:00.0",
+        "schema" : "[{\"name\": \"nctId\", \"dataType\": \"String\"}, {\"name\": \"briefTitle\", \"dataType\": \"String\"}, {\"name\": \"studyType\", \"dataType\": \"String\"}, {\"name\": \"overallStatus\", \"dataType\": \"String\"}, {\"name\": \"condition\", \"dataType\": \"String\"}, {\"name\": \"intervention\", \"dataType\": \"Struct\"}, {\"name\": \"snomedCode\", \"dataType\": \"String\"}, {\"name\": \"conditionDescription\", \"dataType\": \"String\"}]",
+        "allWhiteSpace" : false,
+        "removeTabsLineBreaksAndDuplicateWhitespace" : false,
+        "modifyCase" : "Keep original",
+        "cleanPunctuations" : false,
+        "replaceNullDateFields" : false,
+        "cleanNumbers" : false,
+        "replaceNullNumericWith" : 0
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "iVWLnhBkL6KTzZcYfw_Xp$$IAiGUSmdaEa-HuHAfZC3P",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "bkzpVIy9ksnb6rfS-UYAK$$oo9zUxVERm1JTkzqa_K6F",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "RTclLk_CSQsKXq1PdAnfK$$zFBgCQAoHLj4bycx4NG93" : {
+      "id" : "RTclLk_CSQsKXq1PdAnfK$$zFBgCQAoHLj4bycx4NG93",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "l0_bronze_clinical_study_details",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM clean_clinical_trial_data\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "KvkAPN9rjpjremx0P-neJ$$5d7yjEfGrovA6C3TITEgp",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "oxdWAACq3uYfnsOfjVU3n$$AAwoaw-w0-ktiSsywCj79",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "cNDASc4yJegkALJGvLOon$$jVNPqhJDye0nCtB2vXZFB" : {
+      "id" : "cNDASc4yJegkALJGvLOon$$jVNPqhJDye0nCtB2vXZFB",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "l0_raw_clinical_trials",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "l0_raw_clinical_trials",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_sql_workshop.healthcare_sample",
+          "alias" : "",
+          "additionalProperties" : null
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ITRcE6kmbA9HC15mfHNAf$$BycncaGqq9rDv-8YSX3nU",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "lN4x871OjAMARlr8O0otH$$GklzTv_FNhAxlVnxTXt6z" : {
+      "id" : "lN4x871OjAMARlr8O0otH$$GklzTv_FNhAxlVnxTXt6z",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "valid_clinical_trials",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "7t-oNfxntursR9z9AGVUv$$NEc3RJXRLgcP_gOs5Ix3V##_corrupt_record" ],
+        "condition" : {
+          "expression" : "_corrupt_record IS NULL"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "7t-oNfxntursR9z9AGVUv$$NEc3RJXRLgcP_gOs5Ix3V",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "XYipNnmn0gO8p5O-2mwAV$$WCium5QXNbGs4ZviI2zzp",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "XWEWZ4N1KEsjSNBQs4pcZ",
+    "source" : "YJmPgKcGjqIzqYVrWQacJ$$RDVUmLw-wRTRdcZ92-ygy",
+    "sourcePort" : "bkzpVIy9ksnb6rfS-UYAK$$oo9zUxVERm1JTkzqa_K6F",
+    "target" : "RTclLk_CSQsKXq1PdAnfK$$zFBgCQAoHLj4bycx4NG93",
+    "targetPort" : "KvkAPN9rjpjremx0P-neJ$$5d7yjEfGrovA6C3TITEgp"
+  }, {
+    "id" : "xuU0WR6J8BM4-Yw06WB3D$$j3-8ToRkuvVZPjSJpIICo",
+    "source" : "qD8BGIoXnNxQF_IhMA0Hc$$bbzOBM5CsIyX9nMnCid0P",
+    "sourcePort" : "x_ijtM19dTNrZeCvkY1vC$$Rdp6ynDmOfC_wvOChZRv9",
+    "target" : "YJmPgKcGjqIzqYVrWQacJ$$RDVUmLw-wRTRdcZ92-ygy",
+    "targetPort" : "iVWLnhBkL6KTzZcYfw_Xp$$IAiGUSmdaEa-HuHAfZC3P"
+  }, {
+    "id" : "E_D8NjsqAspSSKWUPERKq$$naM-gErEEQLIyOV7_IaLM",
+    "source" : "lN4x871OjAMARlr8O0otH$$GklzTv_FNhAxlVnxTXt6z",
+    "sourcePort" : "XYipNnmn0gO8p5O-2mwAV$$WCium5QXNbGs4ZviI2zzp",
+    "target" : "qD8BGIoXnNxQF_IhMA0Hc$$bbzOBM5CsIyX9nMnCid0P",
+    "targetPort" : "1pEq3hNSdUgXlmgSRYw_1$$KfrWjwu4sx2CGGxEeHRjB"
+  }, {
+    "id" : "8IEr3f3gHzcI0tTzGejAF$$er28IK0lSIU2JK-4rHtyj",
+    "source" : "cNDASc4yJegkALJGvLOon$$jVNPqhJDye0nCtB2vXZFB",
+    "sourcePort" : "ITRcE6kmbA9HC15mfHNAf$$BycncaGqq9rDv-8YSX3nU",
+    "target" : "lN4x871OjAMARlr8O0otH$$GklzTv_FNhAxlVnxTXt6z",
+    "targetPort" : "7t-oNfxntursR9z9AGVUv$$NEc3RJXRLgcP_gOs5Ix3V"
+  } ],
+  "component" : "Model"
+}

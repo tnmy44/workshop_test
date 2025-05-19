@@ -1,0 +1,250 @@
+---
+version: 2
+sources:
+- name: "prophecy_sql_workshop.healthcare_sample"
+  database: "prophecy_sql_workshop"
+  schema: "healthcare_sample"
+  tables:
+  - name: "l0_raw_clinical_trials"
+    description: "Clinical trial data encompassing study protocols, conditions, interventions,\
+      \ and sponsors, aiding in the understanding of ongoing research efforts."
+    columns:
+    - name: "_corrupt_record"
+      description: "Indicates if there is any corruption in the record"
+      dataType:
+        type: "String"
+    - name: "protocolSection"
+      description: "Contains detailed information about the clinical trial protocol"
+      dataType:
+        type: "Struct"
+        fields:
+        - name: "armsInterventionsModule"
+          dataType:
+            type: "Struct"
+            fields:
+            - name: "interventions"
+              dataType:
+                type: "Array"
+                dataType:
+                  type: "Struct"
+                  fields:
+                  - name: "name"
+                    dataType:
+                      type: "String"
+                    description: "Name of the interventions used in the clinical trial"
+              description: "List of interventions used in the clinical trial"
+          description: "Module detailing the arms and interventions of the clinical\
+            \ trial"
+        - name: "conditionsModule"
+          dataType:
+            type: "Struct"
+            fields:
+            - name: "conditions"
+              dataType:
+                type: "Array"
+                dataType:
+                  type: "String"
+              description: "List of conditions associated with the clinical trial"
+          description: "Conditions being studied in the clinical trial"
+        - name: "designModule"
+          dataType:
+            type: "Struct"
+            fields:
+            - name: "studyType"
+              dataType:
+                type: "String"
+              description: "Type of study design used in the clinical trial"
+          description: "Details about the study design type of the clinical trial"
+        - name: "identificationModule"
+          dataType:
+            type: "Struct"
+            fields:
+            - name: "briefTitle"
+              dataType:
+                type: "String"
+              description: "The brief title of the clinical trial"
+            - name: "nctId"
+              dataType:
+                type: "String"
+              description: "The unique identifier for the clinical trial in the NCT\
+                \ registry"
+          description: "Identification details including the brief title and NCT ID\
+            \ of the clinical trial"
+        - name: "sponsorCollaboratorsModule"
+          dataType:
+            type: "Struct"
+            fields:
+            - name: "collaborators"
+              dataType:
+                type: "Array"
+                dataType:
+                  type: "Struct"
+                  fields:
+                  - name: "name"
+                    dataType:
+                      type: "String"
+                    description: "Name of the collaborators involved in the clinical\
+                      \ trial"
+              description: "List of collaborators involved in the clinical trial"
+            - name: "leadSponsor"
+              dataType:
+                type: "Struct"
+                fields:
+                - name: "name"
+                  dataType:
+                    type: "String"
+                  description: "Name of the lead sponsor for the clinical trial"
+              description: "Name of the lead sponsor for the clinical trial"
+          description: "Module containing information about the sponsors and collaborators\
+            \ of the clinical trial"
+        - name: "statusModule"
+          dataType:
+            type: "Struct"
+            fields:
+            - name: "overallStatus"
+              dataType:
+                type: "String"
+              description: "The overall status of the clinical trial"
+          description: "Overall status of the clinical trial"
+    - name: "snomedCode"
+      description: "The SNOMED code associated with the condition"
+      dataType:
+        type: "String"
+    - name: "conditionDescription"
+      description: "Description of the medical condition being studied in the clinical\
+        \ trial"
+      dataType:
+        type: "String"
+    type: "table"
+  - name: "l0_raw_careplans"
+    columns: []
+    type: "table"
+  - name: "l0_raw_encounters"
+    description: "Patient encounter records detailing costs, payer information, and\
+      \ reasons for encounters, supporting financial analysis and claims processing."
+    columns:
+    - name: "id"
+      description: "Unique identifier for each encounter"
+      dataType:
+        type: "String"
+    - name: "start"
+      description: "Timestamp indicating when the encounter began"
+      dataType:
+        type: "Timestamp"
+    - name: "stop"
+      description: "Timestamp indicating when the encounter ended"
+      dataType:
+        type: "Timestamp"
+    - name: "patient"
+      description: "Identifier for the patient involved in the encounter"
+      dataType:
+        type: "String"
+    - name: "organization"
+      description: "The name of the organization involved in the encounter"
+      dataType:
+        type: "String"
+    - name: "provider"
+      description: "The name of the healthcare provider involved in the encounter"
+      dataType:
+        type: "String"
+    - name: "payer"
+      description: "The entity responsible for covering the costs of the encounter"
+      dataType:
+        type: "String"
+    - name: "encounterClass"
+      description: "The classification of the encounter type"
+      dataType:
+        type: "String"
+    - name: "code"
+      description: "The code representing the type of encounter"
+      dataType:
+        type: "String"
+    - name: "description"
+      description: "A detailed description of the encounter"
+      dataType:
+        type: "String"
+    - name: "baseEncounterCost"
+      description: "The initial cost associated with the encounter before any adjustments\
+        \ or claims."
+      dataType:
+        type: "Double"
+    - name: "totalClaimCost"
+      description: "Total cost of the claim submitted for the encounter"
+      dataType:
+        type: "Double"
+    - name: "payerCoverage"
+      description: "The amount covered by the payer for the encounter"
+      dataType:
+        type: "Double"
+    - name: "reasonCode"
+      description: "Code indicating the reason for the encounter"
+      dataType:
+        type: "String"
+    - name: "reasonDescription"
+      description: "Description of the reason for the encounter"
+      dataType:
+        type: "String"
+    type: "table"
+  - name: "l0_bronze_clinical_study_details"
+    description: "Clinical study details providing insights into study status, type,\
+      \ interventions, and conditions, supporting research and analysis in healthcare."
+    columns:
+    - name: "nctId"
+      dataType:
+        type: "String"
+    - name: "briefTitle"
+      dataType:
+        type: "String"
+    - name: "studyType"
+      dataType:
+        type: "String"
+    - name: "overallStatus"
+      dataType:
+        type: "String"
+    - name: "condition"
+      dataType:
+        type: "String"
+    - name: "intervention"
+      dataType:
+        type: "Struct"
+        fields:
+        - name: "name"
+          dataType:
+            type: "String"
+    - name: "snomedCode"
+      dataType:
+        type: "String"
+    - name: "conditionDescription"
+      dataType:
+        type: "String"
+    type: "table"
+  - name: "l0_raw_patients"
+    columns: []
+    type: "table"
+  - name: "clinical_study_gap_analysis"
+    description: "Analysis of clinical study gaps, focusing on diagnoses and associated\
+      \ costs, to identify areas for improvement in healthcare research."
+    columns:
+    - name: "snomed_diagnosis"
+      description: "The diagnosis code used in clinical studies"
+      dataType:
+        type: "String"
+    - name: "total_cost"
+      description: "Total cost associated with the clinical study"
+      dataType:
+        type: "Double"
+    - name: "nctIds"
+      description: "Array of unique identifiers for clinical trials associated with\
+        \ the diagnosis"
+      dataType:
+        type: "Array"
+        dataType:
+          type: "String"
+    type: "table"
+- name: "prophecy_sql_workshop_clone.healthcare_sample"
+  database: "prophecy_sql_workshop_clone"
+  schema: "healthcare_sample"
+  tables:
+  - name: "l0_raw_medications"
+    columns: []
+    type: "table"

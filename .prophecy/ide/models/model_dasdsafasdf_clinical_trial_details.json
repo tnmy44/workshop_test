@@ -1,0 +1,220 @@
+{
+  "id" : "model_dasdsafasdf_clinical_trial_details",
+  "metainfo" : {
+    "label" : "model_dasdsafasdf_clinical_trial_details",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "alias" : "\"prophecy_tmp__mbta4yc7__dasdsafasdf__clinical_trial_details\"",
+        "materialized" : "table",
+        "database" : "\"tanmay\"",
+        "schema" : "\"default\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "prophecy_tmp__mbta4yc7__dasdsafasdf__clinical_trial_details" : {
+      "id" : "prophecy_tmp__mbta4yc7__dasdsafasdf__clinical_trial_details",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "clinical_trial_details",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM clinical_trial_details\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_0_1",
+          "slug" : "input_port_0_1"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_0_1",
+          "slug" : "output_port_0_1"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "hsZm6C4Jl55YRktKtu6kX$$bvhGDOaLFrjc2kfZCQvrZ" : {
+      "id" : "hsZm6C4Jl55YRktKtu6kX$$bvhGDOaLFrjc2kfZCQvrZ",
+      "component" : "FlattenSchema",
+      "metadata" : {
+        "label" : "clinical_trial_details",
+        "x" : -80,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.armsInterventionsModule", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.armsInterventionsModule.interventions", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.conditionsModule", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.conditionsModule.conditions", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.identificationModule", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.identificationModule.nctId", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.identificationModule.briefTitle", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.designModule", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.designModule.studyType", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.statusModule", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##protocolSection.statusModule.overallStatus", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##snomedCode", "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM##conditionDescription" ],
+        "flattenExpressions" : [ {
+          "expression" : {
+            "expression" : "protocolSection.armsInterventionsModule.interventions"
+          },
+          "alias" : "interventions",
+          "_row_id" : "1778267107"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.conditionsModule.conditions"
+          },
+          "alias" : "conditions",
+          "_row_id" : "1198634226"
+        } ],
+        "expressions" : [ {
+          "expression" : {
+            "expression" : "protocolSection.identificationModule.nctId"
+          },
+          "alias" : "nctId",
+          "_row_id" : "1990760487"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.identificationModule.briefTitle"
+          },
+          "alias" : "briefTitle",
+          "_row_id" : "1937009408"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.designModule.studyType"
+          },
+          "alias" : "studyType",
+          "_row_id" : "1164358608"
+        }, {
+          "expression" : {
+            "expression" : "protocolSection.statusModule.overallStatus"
+          },
+          "alias" : "overallStatus",
+          "_row_id" : "1576845120"
+        }, {
+          "expression" : {
+            "expression" : "conditions.col"
+          },
+          "alias" : "condition",
+          "_row_id" : "522607332"
+        }, {
+          "expression" : {
+            "expression" : "interventions.col"
+          },
+          "alias" : "intervention",
+          "_row_id" : "522221915"
+        }, {
+          "expression" : {
+            "expression" : "snomedCode"
+          },
+          "alias" : "snomedCode",
+          "_row_id" : "1986563411"
+        }, {
+          "expression" : {
+            "expression" : "conditionDescription"
+          },
+          "alias" : "conditionDescription",
+          "_row_id" : "1246592876"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "soBEUv3WlhTcAHTUMLtoz$$yyWDJlF7D9yvVxw_j-6g6",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "B1IVy0_DgJUa0AJ3Mr4rB$$L2wYpv7x-7fARoZa1MIjo" : {
+      "id" : "B1IVy0_DgJUa0AJ3Mr4rB$$L2wYpv7x-7fARoZa1MIjo",
+      "component" : "Filter",
+      "metadata" : {
+        "label" : "valid_clinical_trials",
+        "x" : -280,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ "7UZwWQnkBlZZF93NbhiZs$$JSnasic3Lg1dW1knFvedQ##_corrupt_record" ],
+        "condition" : {
+          "expression" : "_corrupt_record IS NULL"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "7UZwWQnkBlZZF93NbhiZs$$JSnasic3Lg1dW1knFvedQ",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "Bf7G_xdLWy4SjbFYn1dyn$$VXm5IuGteNnJlns7vb8hW",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D" : {
+      "id" : "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "l0_raw_clinical_trials",
+        "x" : -480,
+        "y" : -180,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "l0_raw_clinical_trials",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_sql_workshop.healthcare_sample",
+          "alias" : "",
+          "additionalProperties" : null
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "5RoEGkDcY7VYGGSPZPtze$$nwhh3YvDzHq11d37WvpSf",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "conn_hsZm6C4Jl55YRktKtu6kX$$bvhGDOaLFrjc2kfZCQvrZ_prophecy_tmp__mbta4yc7__dasdsafasdf__clinical_trial_details",
+    "source" : "hsZm6C4Jl55YRktKtu6kX$$bvhGDOaLFrjc2kfZCQvrZ",
+    "sourcePort" : "soBEUv3WlhTcAHTUMLtoz$$yyWDJlF7D9yvVxw_j-6g6",
+    "target" : "prophecy_tmp__mbta4yc7__dasdsafasdf__clinical_trial_details",
+    "targetPort" : "input_port_0_1"
+  }, {
+    "id" : "OnvUZv6tS3p2HBcy3m3Kr",
+    "source" : "B1IVy0_DgJUa0AJ3Mr4rB$$L2wYpv7x-7fARoZa1MIjo",
+    "sourcePort" : "Bf7G_xdLWy4SjbFYn1dyn$$VXm5IuGteNnJlns7vb8hW",
+    "target" : "hsZm6C4Jl55YRktKtu6kX$$bvhGDOaLFrjc2kfZCQvrZ",
+    "targetPort" : "h-8awFoGOD-02eBQaAbc6$$7FNbNrCUB6cAcxX2PxqFM"
+  }, {
+    "id" : "pBpj-vAT3w7nsK2r_leYN",
+    "source" : "HFzvgzykwiSpfrjUlFcV4$$d1WqhO8d4jZ0afqpa0D7D",
+    "sourcePort" : "5RoEGkDcY7VYGGSPZPtze$$nwhh3YvDzHq11d37WvpSf",
+    "target" : "B1IVy0_DgJUa0AJ3Mr4rB$$L2wYpv7x-7fARoZa1MIjo",
+    "targetPort" : "7UZwWQnkBlZZF93NbhiZs$$JSnasic3Lg1dW1knFvedQ"
+  } ],
+  "component" : "Model"
+}

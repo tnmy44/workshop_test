@@ -54,6 +54,45 @@
         } ],
         "isCustomOutputSchema" : false
       }
+    },
+    "9pAcraDlurLDeym0jf5iQ$$lWlKEe_i-nXxgzPnPVcza" : {
+      "id" : "9pAcraDlurLDeym0jf5iQ$$lWlKEe_i-nXxgzPnPVcza",
+      "component" : "OrchestrationTarget",
+      "kind" : "OnedriveTarget",
+      "metadata" : {
+        "label" : "OrchestrationTarget_1",
+        "x" : -1000,
+        "y" : -420,
+        "phase" : 0
+      },
+      "properties" : {
+        "connector" : {
+          "kind" : "onedrive",
+          "properties" : { },
+          "type" : "connector"
+        },
+        "properties" : { },
+        "format" : {
+          "properties" : {
+            "allowLazyQuotes" : false,
+            "allowEmptyColumnNames" : true,
+            "separator" : ",",
+            "nullValue" : "",
+            "header" : true
+          },
+          "kind" : "csv",
+          "category" : "file"
+        },
+        "isNew" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "F7VlFldizHNSm-XncIKM-$$WmSpZS685IehOKu1-89OM",
+          "slug" : "in"
+        } ],
+        "outputs" : [ ],
+        "isCustomOutputSchema" : false
+      }
     }
   },
   "connections" : [ ],

@@ -2,8 +2,8 @@
   config({    
     "materialized": "table",
     "alias": "prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0",
-    "database": "prophecy_sql_workshop_clone",
-    "schema": "healthcare_sample"
+    "database": "tanmay",
+    "schema": "default"
   })
 }}
 

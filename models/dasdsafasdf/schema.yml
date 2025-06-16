@@ -1,6 +1,16 @@
 ---
 version: 2
 models:
-- name: "model_dasdsafasdf_clean_clinical_trial_data"
+- name: "model_dasdsafasdf_clinical_trial_details"
   tags:
   - "prophecy_temp"
+sources:
+- name: "prophecy_tmp_source__dasdsafasdf"
+  database: "tanmay"
+  schema: "default"
+  config:
+    enabled: true
+  tables:
+  - name: "prophecy_tmp__mbta4yc7__dasdsafasdf__clinical_trial_details"
+    tags:
+    - "prophecy_temp"

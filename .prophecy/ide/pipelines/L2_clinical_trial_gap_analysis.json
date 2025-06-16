@@ -552,8 +552,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "total_cost_by_diagnosis",
-        "x" : -140,
-        "y" : -120,
+        "x" : -200,
+        "y" : -180,
         "phase" : 0
       },
       "properties" : {
@@ -888,12 +888,153 @@
         "isCustomOutputSchema" : false
       }
     },
+    "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B" : {
+      "id" : "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+      "component" : "DataCleansing",
+      "metadata" : {
+        "label" : "cleanse_diagnosis_data",
+        "x" : -60,
+        "y" : -40,
+        "phase" : 0
+      },
+      "properties" : {
+        "trimWhiteSpace" : false,
+        "replaceNullForNumericFields" : false,
+        "cleanLetters" : false,
+        "replaceNullTextWith" : "No Diagnosis",
+        "removeRowNullAllCols" : false,
+        "replaceNullTextFields" : true,
+        "relation_name" : [ "total_cost_by_diagnosis" ],
+        "replaceNullDateWith" : "1970-01-01",
+        "columnNames" : [ "snomed_diagnosis" ],
+        "replaceNullTimeFields" : false,
+        "_oldMacroProperties" : {
+          "macroName" : "DataCleansing",
+          "projectName" : "DatabricksSqlBasics",
+          "parameters" : [ {
+            "name" : "relation_name",
+            "value" : "['total_cost_by_diagnosis']"
+          }, {
+            "name" : "schema",
+            "value" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]"
+          }, {
+            "name" : "modifyCase",
+            "value" : "Keep original"
+          }, {
+            "name" : "columnNames",
+            "value" : "[\"snomed_diagnosis\"]"
+          }, {
+            "name" : "replaceNullTextFields",
+            "value" : "true"
+          }, {
+            "name" : "replaceNullTextWith",
+            "value" : "No Diagnosis"
+          }, {
+            "name" : "replaceNullForNumericFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullNumericWith",
+            "value" : "0"
+          }, {
+            "name" : "trimWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "removeTabsLineBreaksAndDuplicateWhitespace",
+            "value" : "false"
+          }, {
+            "name" : "allWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "cleanLetters",
+            "value" : "false"
+          }, {
+            "name" : "cleanPunctuations",
+            "value" : "false"
+          }, {
+            "name" : "cleanNumbers",
+            "value" : "false"
+          }, {
+            "name" : "removeRowNullAllCols",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateWith",
+            "value" : "1970-01-01"
+          }, {
+            "name" : "replaceNullTimeFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullTimeWith",
+            "value" : "1970-01-01 00:00:00.0"
+          } ]
+        },
+        "replaceNullTimeWith" : "1970-01-01 00:00:00.0",
+        "schema" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]",
+        "allWhiteSpace" : false,
+        "removeTabsLineBreaksAndDuplicateWhitespace" : false,
+        "modifyCase" : "Keep original",
+        "cleanPunctuations" : false,
+        "replaceNullDateFields" : false,
+        "cleanNumbers" : false,
+        "replaceNullNumericWith" : 0
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "esqOMqb9EZ0uJDsCoASfS$$bFpi8SPNsPAWeb7tCCd_2",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "snomed_diagnosis",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "nZr9wNeuoudWaf9_L_5f6$$07bwNs6421f412GbpnXpj",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "snomed_diagnosis",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      },
+      "componentInfo" : {
+        "gemId" : "DataCleansing_DatabricksSqlBasics",
+        "name" : "DataCleansing",
+        "projectName" : "DatabricksSqlBasics",
+        "sourceProjectName" : "DatabricksSqlBasics",
+        "sourceProjectVersion" : "0.0.5.dev5"
+      }
+    },
     "7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L" : {
       "id" : "7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L",
       "component" : "OrderBy",
       "metadata" : {
         "label" : "total_cost_desc",
-        "x" : 60,
+        "x" : 180,
         "y" : -320,
         "phase" : 0
       },
@@ -1021,147 +1162,6 @@
         "isCustomOutputSchema" : false
       }
     },
-    "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9" : {
-      "id" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-      "component" : "DataCleansing",
-      "metadata" : {
-        "label" : "cleanse_diagnosis_data",
-        "x" : 60,
-        "y" : -120,
-        "phase" : 0
-      },
-      "properties" : {
-        "trimWhiteSpace" : false,
-        "replaceNullForNumericFields" : false,
-        "cleanLetters" : false,
-        "replaceNullTextWith" : "No Diagnosis",
-        "removeRowNullAllCols" : false,
-        "replaceNullTextFields" : true,
-        "relation_name" : [ "total_cost_by_diagnosis" ],
-        "replaceNullDateWith" : "1970-01-01",
-        "columnNames" : [ "snomed_diagnosis" ],
-        "replaceNullTimeFields" : false,
-        "_oldMacroProperties" : {
-          "macroName" : "DataCleansing",
-          "projectName" : "DatabricksSqlBasics",
-          "parameters" : [ {
-            "name" : "relation_name",
-            "value" : "['total_cost_by_diagnosis']"
-          }, {
-            "name" : "schema",
-            "value" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]"
-          }, {
-            "name" : "modifyCase",
-            "value" : "Keep original"
-          }, {
-            "name" : "columnNames",
-            "value" : "[\"snomed_diagnosis\"]"
-          }, {
-            "name" : "replaceNullTextFields",
-            "value" : "true"
-          }, {
-            "name" : "replaceNullTextWith",
-            "value" : "No Diagnosis"
-          }, {
-            "name" : "replaceNullForNumericFields",
-            "value" : "false"
-          }, {
-            "name" : "replaceNullNumericWith",
-            "value" : "0"
-          }, {
-            "name" : "trimWhiteSpace",
-            "value" : "false"
-          }, {
-            "name" : "removeTabsLineBreaksAndDuplicateWhitespace",
-            "value" : "false"
-          }, {
-            "name" : "allWhiteSpace",
-            "value" : "false"
-          }, {
-            "name" : "cleanLetters",
-            "value" : "false"
-          }, {
-            "name" : "cleanPunctuations",
-            "value" : "false"
-          }, {
-            "name" : "cleanNumbers",
-            "value" : "false"
-          }, {
-            "name" : "removeRowNullAllCols",
-            "value" : "false"
-          }, {
-            "name" : "replaceNullDateFields",
-            "value" : "false"
-          }, {
-            "name" : "replaceNullDateWith",
-            "value" : "1970-01-01"
-          }, {
-            "name" : "replaceNullTimeFields",
-            "value" : "false"
-          }, {
-            "name" : "replaceNullTimeWith",
-            "value" : "1970-01-01 00:00:00.0"
-          } ]
-        },
-        "replaceNullTimeWith" : "1970-01-01 00:00:00.0",
-        "schema" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]",
-        "allWhiteSpace" : false,
-        "removeTabsLineBreaksAndDuplicateWhitespace" : false,
-        "modifyCase" : "Keep original",
-        "cleanPunctuations" : false,
-        "replaceNullDateFields" : false,
-        "cleanNumbers" : false,
-        "replaceNullNumericWith" : 0
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "rPyBggoH7oL849eQ2F1PE$$ghZ2nXvwcV1cJsQsGBFCo",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "snomed_diagnosis",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "total_cost",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
-          "slug" : "in0"
-        } ],
-        "outputs" : [ {
-          "id" : "UxLw0qLh8QkhWQfreGMKh$$eVY_Vb_NIvtm2vGxMcfAh",
-          "schema" : {
-            "entityType" : "",
-            "providerType" : "Databricks",
-            "fields" : [ {
-              "name" : "snomed_diagnosis",
-              "dataType" : {
-                "type" : "String"
-              }
-            }, {
-              "name" : "total_cost",
-              "dataType" : {
-                "type" : "Double"
-              }
-            } ]
-          },
-          "slug" : "out"
-        } ],
-        "isCustomOutputSchema" : false
-      },
-      "componentInfo" : {
-        "gemId" : "DataCleansing_DatabricksSqlBasics",
-        "name" : "DataCleansing",
-        "projectName" : "DatabricksSqlBasics",
-        "sourceProjectName" : "DatabricksSqlBasics",
-        "sourceProjectVersion" : "0.0.5.dev5"
-      }
-    },
     "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt" : {
       "id" : "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt",
       "component" : "OrderBy",
@@ -1258,18 +1258,6 @@
     "target" : "7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L",
     "targetPort" : "csBSeDVp68C9Cf0ML6XtK$$M7ItMkoR4cQfrB4EZI78b"
   }, {
-    "id" : "3ymwce1UyEnQPX6wswgbP",
-    "source" : "Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO",
-    "sourcePort" : "mYle2jKthyOWWmuHkl8rE$$K196vEzy9UMWT8RjxOw9I",
-    "target" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-    "targetPort" : "rPyBggoH7oL849eQ2F1PE$$ghZ2nXvwcV1cJsQsGBFCo"
-  }, {
-    "id" : "tRzTFxuuNmij3gefjCaQ3",
-    "source" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-    "sourcePort" : "UxLw0qLh8QkhWQfreGMKh$$eVY_Vb_NIvtm2vGxMcfAh",
-    "target" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
-    "targetPort" : "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd"
-  }, {
     "id" : "eCnn-CR31oZKBk2UtDYJh$$Gn7wFtUvK6c3J8IMPPp5M",
     "source" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
     "sourcePort" : "xizQgSem6ejDKnXTJGegJ$$xyCdJ43PCOciApNV3rNQC",
@@ -1299,6 +1287,18 @@
     "sourcePort" : "_Ydr75Y81s2P3MM_mrD28$$Wdz4tfZYwcnpOGsan75UX",
     "target" : "uKpnA_UqG3ApBA7G6hP18$$lUpOyUofpIWqxJCevVq8I",
     "targetPort" : "qzwYhilvjJdGTcFNpOVIj$$8shvLKPYsUMhP_UZEczG5"
+  }, {
+    "id" : "10G2foHdHPP0eBO5VVzLL",
+    "source" : "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+    "sourcePort" : "nZr9wNeuoudWaf9_L_5f6$$07bwNs6421f412GbpnXpj",
+    "target" : "t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS",
+    "targetPort" : "yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd"
+  }, {
+    "id" : "X7AkHzIjNtVVWYlslgfP-",
+    "source" : "Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO",
+    "sourcePort" : "mYle2jKthyOWWmuHkl8rE$$K196vEzy9UMWT8RjxOw9I",
+    "target" : "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+    "targetPort" : "esqOMqb9EZ0uJDsCoASfS$$bFpi8SPNsPAWeb7tCCd_2"
   } ],
   "component" : "Pipeline"
 }

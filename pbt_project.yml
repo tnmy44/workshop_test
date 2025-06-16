@@ -322,6 +322,14 @@ sqlSources:
       author: sony@prophecy.io
       createdAt: '2025-05-17 12:27:31'
       tableType: table
+  .prophecy/metadata/sqlsources/prophecy_tmp_source__dasdsafasdf:
+    name: prophecy_tmp_source__dasdsafasdf
+    description: null
+    author: tanmay@prophecy.io
+    files:
+    - models/dasdsafasdf/schema.yml
+    createdAt: '2025-06-12 11:12:44'
+    tables: []
 sqlUnreferencedSources: {}
 sqlPipeline:
   name: sqlPipeline
@@ -350,7 +358,7 @@ sqlOrchestratorPipelines:
     author: sony@prophecy.io
     files:
     - models/dasdsafasdf/schema.yml
-    - models/dasdsafasdf/model_dasdsafasdf_clean_clinical_trial_data.sql
+    - models/dasdsafasdf/model_dasdsafasdf_clinical_trial_details.sql
     - .prophecy/ide/pipelines/dasdsafasdf.json
     - pipelines/dasdsafasdf.py
     createdAt: '2025-05-14 10:10:17'
@@ -361,7 +369,7 @@ sqlOrchestratorPipelines:
     author: sony@prophecy.io
     files:
     - models/test2/schema.yml
-    - models/test2/model_test2_clean_clinical_trial_data.sql
+    - models/test2/model_test2_clinical_trial_details.sql
     - .prophecy/ide/pipelines/test2.json
     - pipelines/test2.py
     createdAt: '2025-05-14 10:02:01'
@@ -371,13 +379,12 @@ sqlOrchestratorPipelines:
     description: null
     author: sony@prophecy.io
     files:
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis.sql
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data.sql
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_empty_nctids_summary.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary.sql
     - models/L2_clinical_trial_gap_analysis/schema.yml
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_desc.sql
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_sorted.sql
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_empty_nctids_summary.sql
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_desc.sql
     - .prophecy/ide/pipelines/L2_clinical_trial_gap_analysis.json
     - pipelines/L2_clinical_trial_gap_analysis.py
     createdAt: '2025-05-14 09:33:43'
@@ -397,7 +404,7 @@ sqlOrchestratorPipelines:
     author: sony@prophecy.io
     files:
     - models/L0_raw_clinical_trials/schema.yml
-    - models/L0_raw_clinical_trials/model_L0_raw_clinical_trials_clean_clinical_trial_data.sql
+    - models/L0_raw_clinical_trials/model_L0_raw_clinical_trials_clinical_trial_details.sql
     - .prophecy/ide/pipelines/L0_raw_clinical_trials.json
     - pipelines/L0_raw_clinical_trials.py
     createdAt: '2025-05-14 08:22:07'

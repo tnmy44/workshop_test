@@ -302,6 +302,177 @@
         "isCustomOutputSchema" : false
       }
     },
+    "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0" : {
+      "id" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "cleanse_diagnosis_data",
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+          "sourceType" : "Source",
+          "sourceName" : "prophecy__temp_L2_clinical_trial_gap_analysis_source",
+          "alias" : ""
+        }
+      },
+      "visualMetaInfo" : {
+        "isTemporaryTable" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "input_port_1_1",
+          "slug" : "input_port_1_1"
+        } ],
+        "outputs" : [ {
+          "id" : "output_port_1_1",
+          "slug" : "output_port_1_1"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B" : {
+      "id" : "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+      "component" : "DataCleansing",
+      "metadata" : {
+        "label" : "cleanse_diagnosis_data",
+        "x" : -60,
+        "y" : -40,
+        "phase" : 0
+      },
+      "properties" : {
+        "trimWhiteSpace" : false,
+        "replaceNullForNumericFields" : false,
+        "cleanLetters" : false,
+        "replaceNullTextWith" : "No Diagnosis",
+        "removeRowNullAllCols" : false,
+        "replaceNullTextFields" : true,
+        "relation_name" : [ "total_cost_by_diagnosis" ],
+        "replaceNullDateWith" : "1970-01-01",
+        "columnNames" : [ "snomed_diagnosis" ],
+        "replaceNullTimeFields" : false,
+        "_oldMacroProperties" : {
+          "macroName" : "DataCleansing",
+          "projectName" : "DatabricksSqlBasics",
+          "parameters" : [ {
+            "name" : "relation_name",
+            "value" : "['total_cost_by_diagnosis']"
+          }, {
+            "name" : "schema",
+            "value" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]"
+          }, {
+            "name" : "modifyCase",
+            "value" : "Keep original"
+          }, {
+            "name" : "columnNames",
+            "value" : "[\"snomed_diagnosis\"]"
+          }, {
+            "name" : "replaceNullTextFields",
+            "value" : "true"
+          }, {
+            "name" : "replaceNullTextWith",
+            "value" : "No Diagnosis"
+          }, {
+            "name" : "replaceNullForNumericFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullNumericWith",
+            "value" : "0"
+          }, {
+            "name" : "trimWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "removeTabsLineBreaksAndDuplicateWhitespace",
+            "value" : "false"
+          }, {
+            "name" : "allWhiteSpace",
+            "value" : "false"
+          }, {
+            "name" : "cleanLetters",
+            "value" : "false"
+          }, {
+            "name" : "cleanPunctuations",
+            "value" : "false"
+          }, {
+            "name" : "cleanNumbers",
+            "value" : "false"
+          }, {
+            "name" : "removeRowNullAllCols",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullDateWith",
+            "value" : "1970-01-01"
+          }, {
+            "name" : "replaceNullTimeFields",
+            "value" : "false"
+          }, {
+            "name" : "replaceNullTimeWith",
+            "value" : "1970-01-01 00:00:00.0"
+          } ]
+        },
+        "replaceNullTimeWith" : "1970-01-01 00:00:00.0",
+        "schema" : "[{\"name\": \"snomed_diagnosis\", \"dataType\": \"String\"}, {\"name\": \"total_cost\", \"dataType\": \"Double\"}]",
+        "allWhiteSpace" : false,
+        "removeTabsLineBreaksAndDuplicateWhitespace" : false,
+        "modifyCase" : "Keep original",
+        "cleanPunctuations" : false,
+        "replaceNullDateFields" : false,
+        "cleanNumbers" : false,
+        "replaceNullNumericWith" : 0
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "esqOMqb9EZ0uJDsCoASfS$$bFpi8SPNsPAWeb7tCCd_2",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "snomed_diagnosis",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "nZr9wNeuoudWaf9_L_5f6$$07bwNs6421f412GbpnXpj",
+          "schema" : {
+            "entityType" : "",
+            "providerType" : "Databricks",
+            "fields" : [ {
+              "name" : "snomed_diagnosis",
+              "dataType" : {
+                "type" : "String"
+              }
+            }, {
+              "name" : "total_cost",
+              "dataType" : {
+                "type" : "Double"
+              }
+            } ]
+          },
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      },
+      "componentInfo" : {
+        "gemId" : "DataCleansing_DatabricksSqlBasics",
+        "name" : "DataCleansing",
+        "projectName" : "DatabricksSqlBasics",
+        "sourceProjectName" : "DatabricksSqlBasics",
+        "sourceProjectVersion" : "0.0.5.dev5"
+      }
+    },
     "7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L" : {
       "id" : "7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L",
       "component" : "Model",
@@ -324,33 +495,6 @@
         } ],
         "outputs" : [ {
           "id" : "model_L2_clinical_trial_gap_analysis_total_cost_desc_out_0",
-          "slug" : "out_0"
-        } ],
-        "isCustomOutputSchema" : false
-      }
-    },
-    "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9" : {
-      "id" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-      "component" : "Model",
-      "metadata" : {
-        "label" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data",
-        "phase" : 0
-      },
-      "properties" : {
-        "modelName" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data"
-      },
-      "visualMetaInfo" : {
-        "visualProcessIds" : [ "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0", "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9", "prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0" ],
-        "type" : "table",
-        "isTemporaryTable" : true
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data_in_0",
-          "slug" : "in_0"
-        } ],
-        "outputs" : [ {
-          "id" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data_out_0",
           "slug" : "out_0"
         } ],
         "isCustomOutputSchema" : false
@@ -385,11 +529,23 @@
     }
   },
   "connections" : [ {
+    "id" : "10G2foHdHPP0eBO5VVzLL",
+    "source" : "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+    "sourcePort" : "nZr9wNeuoudWaf9_L_5f6$$07bwNs6421f412GbpnXpj",
+    "target" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+    "targetPort" : "input_port_1_1"
+  }, {
     "id" : "ZUziX5KAS9kGkXgm9Du8j",
     "source" : "6H8HaLnlW91Tzarhdi_uu$$2bTreQDncJlEVaKCDPhXE",
     "sourcePort" : "EIWAtlIfmzxbyQAoTmegK$$Iq8tWs2LvQpeXBqjjX66w",
     "target" : "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
     "targetPort" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_in_0"
+  }, {
+    "id" : "conn_prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0_t-TSqf6aFZYLucVwU-z0b$$lqw97PM0GT-RqH2Jw0ISS_yKCqRrQOVwxzr9rQRIJK0$$tMaHJMU5Os6iM8z7va2Fd",
+    "source" : "prophecy__temp_L2_clinical_trial_gap_analysis_pre_diagnosis_clinical_study_join_0",
+    "sourcePort" : "output_port_1_1",
+    "target" : "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
+    "targetPort" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_in_1"
   }, {
     "id" : "GBeZPp6ySlFFHcDdCI0vK$$asy2WTzpEeSYjXI4U_z4h",
     "source" : "Ol6TTdCXf9iLiunc41oWW$$m2agVoTCUm4FpDInMYXOV",
@@ -409,23 +565,17 @@
     "target" : "h-v5oiLeH38kqYEaY0WxH$$_rtrqDHj1MOkZtb_oo8mt",
     "targetPort" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_sorted_in_0"
   }, {
+    "id" : "conn_Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO_fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+    "source" : "Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO",
+    "sourcePort" : "model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis_out_0",
+    "target" : "fZ4yWI0CzcAAXUeija3Fu$$h5oe6tKRMoziNHvmdjd_B",
+    "targetPort" : "esqOMqb9EZ0uJDsCoASfS$$bFpi8SPNsPAWeb7tCCd_2"
+  }, {
     "id" : "conn_Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO_7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L",
     "source" : "Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO",
     "sourcePort" : "model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis_out_0",
     "target" : "7e0G-uHnIwnGFFigdwBmU$$pv_aPzosByNpq_OoR-N8L",
     "targetPort" : "model_L2_clinical_trial_gap_analysis_total_cost_desc_in_0"
-  }, {
-    "id" : "conn_Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO_GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-    "source" : "Ava6WiP9v1GPhrZ2in-2-$$CZrY5xWCkhlEXtSWEd4fO",
-    "sourcePort" : "model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis_out_0",
-    "target" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-    "targetPort" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data_in_0"
-  }, {
-    "id" : "conn_GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9_w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
-    "source" : "GtxG_YzUHKOCJA3CHsONW$$hbCthGD0st_nAHUl61CQ9",
-    "sourcePort" : "model_L2_clinical_trial_gap_analysis_cleanse_diagnosis_data_out_0",
-    "target" : "w1_ejYB-8rmxLuYqLYi8-$$CbKmGWxua4wTGdCNMOlzN",
-    "targetPort" : "model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_in_0"
   } ],
   "component" : "Pipeline"
 }

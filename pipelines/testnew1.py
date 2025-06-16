@@ -11,3 +11,22 @@ with DAG(Schedule = Schedule):
           "alias": ""
         }
     )
+    OrchestrationTarget_1 = Task(
+        task_id = "OrchestrationTarget_1", 
+        component = "OrchestrationTarget", 
+        kind = "OnedriveTarget", 
+        connector = Connection(kind = "onedrive"), 
+        properties = {}, 
+        format = {
+          "properties": {
+            "allowLazyQuotes": False, 
+            "allowEmptyColumnNames": True, 
+            "separator": ",", 
+            "nullValue": "", 
+            "header": True
+          }, 
+          "kind": "csv", 
+          "category": "file"
+        }, 
+        isNew = True
+    )

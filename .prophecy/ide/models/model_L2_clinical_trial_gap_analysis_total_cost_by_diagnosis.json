@@ -11,8 +11,8 @@
       "entityConfig" : {
         "alias" : "\"prophecy__temp_L2_clinical_trial_gap_analysis_post_total_cost_by_diagnosis_0\"",
         "materialized" : "table",
-        "database" : "\"prophecy_sql_workshop_clone\"",
-        "schema" : "\"healthcare_sample\"",
+        "database" : "\"tanmay\"",
+        "schema" : "\"default\"",
         "type" : "ModelConfig"
       }
     },
@@ -55,8 +55,8 @@
       "component" : "Aggregate",
       "metadata" : {
         "label" : "total_cost_by_diagnosis",
-        "x" : -140,
-        "y" : -120,
+        "x" : -200,
+        "y" : -180,
         "phase" : 0
       },
       "properties" : {

@@ -1,6 +1,18 @@
 ---
 version: 2
 models:
-- name: "model_test2_clean_clinical_trial_data"
+- name: "model_test2_clinical_trial_details"
   tags:
   - "prophecy_temp"
+sources:
+- name: "prophecy__temp_test2_source"
+  database: "tanmay"
+  schema: "default"
+  tags:
+  - "prophecy_temp"
+  config:
+    enabled: true
+  tables:
+  - name: "prophecy__temp_test2_post_clinical_trial_details_0"
+    tags:
+    - "prophecy_temp"

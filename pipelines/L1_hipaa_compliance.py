@@ -1,4 +1,4 @@
-Schedule = Schedule(cron = "* 0 2 * * * *", timezone = "GMT", emails = ["email@gmail.com"], enabled = False)
+Schedule = Schedule(cron = "* 0 2 * * * *", timezone = "Asia/Kolkata")
 
 with DAG(Schedule = Schedule):
     l0_raw_patients = Task(

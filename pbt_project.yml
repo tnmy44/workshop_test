@@ -379,12 +379,12 @@ sqlOrchestratorPipelines:
     description: null
     author: sony@prophecy.io
     files:
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis.sql
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_desc.sql
-    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_empty_nctids_summary.sql
-    - models/L2_clinical_trial_gap_analysis/schema.yml
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_desc.sql
     - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary_sorted.sql
+    - models/L2_clinical_trial_gap_analysis/schema.yml
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_diagnosis_cost_summary.sql
+    - models/L2_clinical_trial_gap_analysis/model_L2_clinical_trial_gap_analysis_total_cost_by_diagnosis.sql
     - .prophecy/ide/pipelines/L2_clinical_trial_gap_analysis.json
     - pipelines/L2_clinical_trial_gap_analysis.py
     createdAt: '2025-05-14 09:33:43'
